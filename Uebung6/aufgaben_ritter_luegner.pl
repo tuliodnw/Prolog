@@ -1,0 +1,52 @@
+/******************************************************************************/
+/******************************************************************************/
+/*                               Ritter-Schurken-Aufgaben                     */
+/******************************************************************************/
+/******************************************************************************/
+/* aufgabe(<nr>,[es,gibt,folgende,insulaner,...],<listen der Einzelaussagen>) */
+/*----------------------------------------------------------------------------*/
+aufgabe(1,[es,gibt,folgende,insulaner,a,b],
+          [[a,sagt,dass,er,ein,ritter,ist],[b,sagt,dass,a,ein,luegner,ist]]).
+aufgabe(2,[es,gibt,folgende,insulaner,a,b],
+          [[a,sagt,etwas,unverstaendliches],[b,sagt,dass,jeder,von,ihnen,ein,luegner,ist]]).
+aufgabe(3,[es,gibt,folgende,insulaner,a,b],
+          [[a,sagt,dass,jeder,von,ihnen,ein,ritter,ist],[b,sagt,dass,jeder,von,ihnen,ein,luegner,ist]]).
+aufgabe(4,[es,gibt,folgende,insulaner,a,b],
+          [[a,sagt,dass,wenn,er,ein,ritter,ist,dann,ist,b,ein,ritter],[b,sagt,dass,jeder,von,ihnen,ein,luegner,ist]]).
+aufgabe(5,[es,gibt,folgende,insulaner,a,b],
+          [[a,sagt,dass,genau,einer,von,ihnen,ein,luegner,ist],[b,sagt,dass,genau,einer,von,ihnen,ein,ritter,ist]]).
+aufgabe(6,[es,gibt,folgende,insulaner,a,b],
+          [[a,sagt,dass,mindestens,einer,von,ihnen,ein,luegner,ist],[b,sagt,dass,mindestens,einer,von,ihnen,ein,ritter,ist]]).
+aufgabe(7,[es,gibt,folgende,insulaner,a,b],
+          [[a,sagt,dass,er,ein,ritter,ist,oder,dass,b,ein,luegner,ist],[b,sagt,dass,a,ein,luegner,ist,oder,dass,er,ein,ritter,ist]]).
+aufgabe(8,[es,gibt,folgende,insulaner,a,b],
+          [[a,sagt,dass,er,kein,ritter,ist,und,dass,b,kein,luegner,ist],[b,sagt,dass,a,kein,luegner,ist,oder,dass,er,kein,ritter,ist]]).
+aufgabe(9,[es,gibt,folgende,insulaner,a,b,c],
+          [[a,sagt,dass,jeder,von,ihnen,ein,ritter,ist],[b,sagt,dass,jeder,von,ihnen,ein,luegner,ist]]).
+aufgabe(10,[es,gibt,folgende,insulaner,a,b,c],
+           [[a,sagt,dass,mindestens,einer,von,ihnen,ein,ritter,ist],[b,sagt,dass,jeder,von,ihnen,ein,luegner,ist]]).
+aufgabe(11,[es,gibt,folgende,insulaner,a,b,c],
+           [[a,sagt,dass,entweder,b,ein,ritter,ist,oder,c,ist,ein,luegner],[b,sagt,dass,entweder,c,ein,ritter,ist,oder,er,ist,ein,luegner]]).
+aufgabe(12,[es,gibt,folgende,insulaner,a,b,c],
+           [[a,sagt,dass,b,ein,ritter,ist],[b,sagt,dass,c,ein,ritter,ist],[c,sagt,dass,a,ein,ritter,ist]]).
+aufgabe(13,[es,gibt,folgende,insulaner,a,b],
+           [[a,sagt,dass,er,ein,ritter,ist],[b,sagt,dass,er,ein,luegner,ist]]).
+aufgabe(14,[es,gibt,folgende,insulaner,a,b],
+           [[a,sagt,dass,mindestens,einer,von,ihnen,ein,luegner,ist]]).%28
+aufgabe(15,[es,gibt,folgende,insulaner,a,b],
+           [[a,sagt,dass,entweder,er,ein,luegner,ist,oder,b,ist,ein,ritter]]).%29
+aufgabe(16,[es,gibt,folgende,insulaner,a,b,c],
+           [[a,sagt,dass,jeder,von,ihnen,ein,luegner,ist],[b,sagt,dass,mindestens,einer,von,ihnen,ein,ritter,ist]]).%31
+aufgabe(17,[es,gibt,folgende,insulaner,a,b],
+           [[a,sagt,dass,jeder,von,ihnen,ein,luegner,ist],[b,sagt,dass,mindestens,einer,von,ihnen,ein,luegner,ist]]).%32
+aufgabe(18,[es,gibt,folgende,insulaner,a,b],
+           [[a,sagt,dass,er,ein,luegner,ist,und,dass,b,ein,ritter,ist]]).%33
+aufgabe(19,[es,gibt,folgende,insulaner,a,b],
+           [[a,sagt,dass,wenn,er,ein,ritter,ist,dann,ist,b,ein,ritter]]).%109
+aufgabe(20,[es,gibt,folgende,insulaner,a,b],
+           [[a,sagt,dass,wenn,b,ein,ritter,ist,dann,ist,er,ein,luegner]]).%113
+aufgabe(21,[es,gibt,folgende,insulaner,a,b,c],
+           [[a,sagt,dass,b,ein,ritter,ist],[b,sagt,dass,wenn,a,ein,ritter,ist,dann,ist,c,ein,ritter]]).%115
+aufgabe(22,[es,gibt,folgende,insulaner,a,b,c],
+           [[a,sagt,dass,b,ein,luegner,ist],[b,sagt,dass,wenn,a,ein,ritter,ist,dann,ist,c,ein,ritter],[b,sagt,dass,wenn,a,ein,luegner,ist,dann,ist,c,ein,luegner]]).%umgewandelt,34
+/******************************************************************************/
