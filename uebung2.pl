@@ -17,18 +17,18 @@
 /******************************************************************************/
 /* Elemente-Relation: el_rel(E,L):- E ist Element von L                       */
 /*----------------------------------------------------------------------------*/
-/* Für die Elemente-Relation sind wenigstens zwei Fließmuster sinnvoll:       */
+/* Fï¿½r die Elemente-Relation sind wenigstens zwei Flieï¿½muster sinnvoll:       */
 /* 1. el_rel(+E,+L): Sowohl das Element als auch die Liste sind gegeben. Es   */
-/*    gibt nur zwei Lösungen: true oder false, je nachdem ob das Element in   */
-/*    der Liste enthalten ist oder nicht. Diese Lösungen ergeben sich durch   */
+/*    gibt nur zwei Lï¿½sungen: true oder false, je nachdem ob das Element in   */
+/*    der Liste enthalten ist oder nicht. Diese Lï¿½sungen ergeben sich durch   */
 /*    den erfolgreichen Beweis der Anfrage oder durch deren Scheitern aber    */
 /*    nicht durch eine Wertebelegung einer Variablen.                         */
 /* 2. el_rel(-E,+L): Nur die Liste ist gegeben. Es wird nach einem Element    */
-/*    gefragt, das in der Liste enthalten ist. Es gibt N Lösungen, wenn die   */
-/*    Liste N Elemente enthält. Diese Lösungen entsprechen N Werten der beim  */
+/*    gefragt, das in der Liste enthalten ist. Es gibt N Lï¿½sungen, wenn die   */
+/*    Liste N Elemente enthï¿½lt. Diese Lï¿½sungen entsprechen N Werten der beim  */
 /*    Aufruf ungebundenen Variable E                                          */
-/* Die restlichen zwei Fließmuster el_rel(+E,-L) und el_rel(-E,-L) sind       */
-/* praktisch nicht relevant, da sie eine unendlich Anzahl von Lösungen        */
+/* Die restlichen zwei Flieï¿½muster el_rel(+E,-L) und el_rel(-E,-L) sind       */
+/* praktisch nicht relevant, da sie eine unendlich Anzahl von Lï¿½sungen        */
 /* erzeugen.                                                                  */
 /*----------------------------------------------------------------------------*/
 el_rel(E,[E|_]).
@@ -37,8 +37,6 @@ el_rel(E,[_|R]):- el_rel(E,R).
 el_rel(a,[a,b,c]).
 el_rel(O,[a,b,c]).
 */
-
-a(_).
 
 /*----------------------------------------------------------------------------*/
 /* Testen Sie das Prädikat el_rel mit verschiedenen Fließmustern              */
@@ -66,7 +64,6 @@ a(_).
 /*----------------------------------------------------------------------------*/
 kette([],L,L).
 kette([K|R1],L,[K|R2]):- kette(R1,L,R2).
-
 /*
 kette([a,b,c],[h,j],[a,b,c,h,j]).
 kette([a,b,c],[h,j],P).
@@ -74,9 +71,6 @@ kette(P,[h,j],[a,b,c,h,j]).
 kette([a,b,c],P,[a,b,c,d]).
 kette(P,Q,[a,b,c]).
 */
-
-
-
 
 /*----------------------------------------------------------------------------*/
 /* Testen Sie das Prädikat kettet/3 mit verschiedenen Fließmustern            */
@@ -100,11 +94,8 @@ kette(P,Q,[a,b,c]).
 % geradz_lst([a,b,c]).  --> false
 % geradz_lst([a,b,c,d]).--> true
 /******************************************************************************/
-%geradz_lst([]).
-%geradz_lst([_|[_|R]]):-geradz_lst(R).
-
-
-
+geradz_lst([]).
+geradz_lst([_|[_|R]]):-geradz_lst(R).
 
 /* 2. Definieren Sie ein Prädikat zur Bestimmung der Länge einer Liste bzw.   */
 /*    zur Erzeugung einer Liste einer vorgegebener Länge.                     */
@@ -113,11 +104,6 @@ kette(P,Q,[a,b,c]).
 /*----------------------------------------------------------------------------*/
 laenge(null,[]).
 laenge(s(N),[_|R]):- laenge(N,R).
-
-
-
-
-
 
 /* 2.1. Definieren Sie das Prädikat laenge1/2 Benutzung von Natürlichen Zahlen*/
 /*      zur Angabe der Listenlänge                                            */
@@ -131,11 +117,6 @@ laenge(s(N),[_|R]):- laenge(N,R).
 /*----------------------------------------------------------------------------*/
 nat(null).
 nat(s(X)):- nat(X).
-
-/*
-
-*/
-
 /*----------------------------------------------------------------------------*/
 /* Testen Sie das Prädikat "nat" mit verschiedenen Fließmustern               */
 /*----------------------------------------------------------------------------*/
@@ -143,6 +124,7 @@ nat(s(X)):- nat(X).
 /*----------------------------------------------------------------------------*/
 laenge1([],null).
 laenge1([_|R],s(N)):- laenge1(R,N).
+
 /*----------------------------------------------------------------------------*/
 /*                      Testfälle für das Prädikat laenge1                    */
 /*----------------------------------------------------------------------------*/
@@ -153,6 +135,8 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /* 2.2. Definieren Sie das Prädikat laenge2/2 unter Benutzung von             */
 /*      Integerzahlen zur Angabe der Listenlänge.                             */
 /*----------------------------------------------------------------------------*/
+laenge2([], 0).
+laenge2([_|R], LL):- laenge2(R, LL1), LL is LL1 + 1.
 
 /*----------------------------------------------------------------------------*/
 /*                      Testfälle für das Prädikat laenge2                    */
@@ -164,11 +148,22 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /* 2.3. Machen Sie sich den Unterschied von laenge1/2 und laenge2/2 bezüglich */
 /*      ihrer Anwendbarkeit klar!                                             */
 /******************************************************************************/
+/*
+laenge1([],null).
+laenge1([_|R],s(N)):- laenge1(R,N).
+
+laenge2([], 0).
+laenge2([_|R], LL):- laenge2(R, LL1), LL is LL1 + 1.
+*/
+
 /* 3. Definieren Sie ein Prädikat zur Prädikat zum Bestimmen des Präfixes     */
 /*    einer Liste (Ein Präfix ist der vordere Teil einer Liste)               */
 /*----------------------------------------------------------------------------*/
 /* prefix(P,L):- P ist Prefix der Liste L                                     */
 /*----------------------------------------------------------------------------*/
+
+prefix([],_).
+prefix([K|R],[K|T]):- prefix(R, T).
 
 /*----------------------------------------------------------------------------*/
 /*                      Testfälle für das Prädikat prefix                     */
@@ -182,7 +177,9 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /*----------------------------------------------------------------------------*/
 /* suffix(S,L):- S ist Suffix der Liste L                                     */
 /*----------------------------------------------------------------------------*/
-
+  suffix(P,P).
+  suffix(L,[_|R]):- suffix(L,R).
+  
 /*----------------------------------------------------------------------------*/
 /*                      Testfälle für das Prädikat suffix                     */
 /*----------------------------------------------------------------------------*/
@@ -198,6 +195,8 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /*----------------------------------------------------------------------------*/
 /* 5.1. Benutzung von Natürlichen Zahlen zur Angabe der Position.             */
 /*----------------------------------------------------------------------------*/
+pos1(E,[E|_],s(null)).
+pos1(E,[_|R],s(X)):-pos1(E,R,X).
 
 /*----------------------------------------------------------------------------*/
 /*                      Testfälle für das Prädikat pos1                       */
@@ -209,6 +208,8 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /*----------------------------------------------------------------------------*/
 /* 5.2. Benutzung von Integer Zahlen zur Angabe der Position.                 */
 /*----------------------------------------------------------------------------*/
+pos2(E,[E|_],1).
+pos2(E,[_|R],LL):-pos2(E,R,LL1), LL is LL1+1.
 
 /*----------------------------------------------------------------------------*/
 /*                      Testfälle für das Prädikat pos2                       */
@@ -220,6 +221,17 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /*----------------------------------------------------------------------------*/
 /* 5.3. Machen Sie sich den Unterschied in der Anwendbarkeit klar!            */
 /******************************************************************************/
+
+
+/*
+pos1(E,[E|_],s(null)).
+pos1(E,[_|R],s(X)):-pos1(E,R,X).
+
+pos2(E,[E|_],1).
+pos2(E,[_|R],LL):-pos2(E,R,LL1), LL is LL1+1.
+*/
+
+
 /* 6. Definieren Sie ein Prädikat zur Umkehrung einer Liste                   */
 /*----------------------------------------------------------------------------*/
 /* 6.1. Definition ohne Akkumulator                                           */
@@ -227,6 +239,8 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /* umkehr1(LISTE,ETSIL):- ETSIL=LISTE mit umgekehrter Reihenfolge der         */
 /*                        Elemente                                            */
 /*----------------------------------------------------------------------------*/
+umkehr1([],[]).
+umkehr1([K|R],L):-umkehr1(R,T),append(T,[K],L).
 
 /*----------------------------------------------------------------------------*/
 /*                       Testfall für das Prädikat umkehr1                    */
@@ -238,6 +252,8 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /* umkehr2(LISTE,AKKU,ETSIL):- AKKU = Liste zum Speichern der Zwischen-       */
 /*                                    Ergebnisse                              */
 /*----------------------------------------------------------------------------*/
+umkehr2([],A,A).
+umkehr2([K|R],H,P) :- umkehr2(R,[K|H],P).
 
 /*----------------------------------------------------------------------------*/
 /*                       Testfall für das Prädikat umkehr2                    */
@@ -246,12 +262,21 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /*----------------------------------------------------------------------------*/
 /* 6.3. Machen Sie sich den Unterschied zwischen umkehr1 und umkehr2 klar!    */
 /******************************************************************************/
+/*
+umkehr1([],[]).
+umkehr1([K|R],L):-umkehr1(R,T),append(T,[K],L).
+
+umkehr2([],A,A).
+umkehr2([K|R],H,P) :- umkehr2(R,[K|H],P).
+*/
 /* 7. Definieren Sie ein Prädikat zum Test auf Mehrfachvorkommen eines        */
 /*    Elementes in einer Liste. Benutzen Sie die Systemprädikate select und   */
 /*    member                                                                  */
 /*----------------------------------------------------------------------------*/
 /* mehrfach(L):- true wenn ein Element in L mehrfach vorkommt                 */
 /*----------------------------------------------------------------------------*/
+mehrfach([K|R]):- memberchk(K,R).
+mehrfach([_|R]):- mehrfach(R).
 
 /*----------------------------------------------------------------------------*/
 /*                   Testfälle für das Prädikat mehrfach                      */
@@ -267,6 +292,8 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /*     Systemprädikats delete/3:                                              */
 /*     normal1(L,M):- M enthaelt jedes Element von L nur einmal.              */
 /*----------------------------------------------------------------------------*/
+normal1([],[]).
+normal1([K|R],[K|M]):-delete(R,K,T),normal1(T,M).
 
 /*----------------------------------------------------------------------------*/
 /*                   Testfälle für das Prädikat normal1                       */
@@ -280,6 +307,8 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /*     normal2(L,A,M):- M enthaelt jedes Element von L nur einmal.            */
 /*                      L=Liste; M=Menge, A=Akku                              */
 /*----------------------------------------------------------------------------*/
+normal2([],A,A).
+normal2([K|R],H,P) :- delete(R,K,T),normal2(T,[K|H],P).
 
 /*----------------------------------------------------------------------------*/
 /*                   Testfälle für das Prädikat normal2                       */
@@ -301,9 +330,12 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /* 9. Definieren Sie das Prädikat ordered(L), das testet ob L eine            */
 /*    aufsteigend geordnete Zahlenliste ist.                                  */
 /*----------------------------------------------------------------------------*/
-/* Pseudomathematische Definition: für alle x(i) und x(i+1), 1=<i=<n, n>=1:   */                                        */
+/* Pseudomathematische Definition: für alle x(i) und x(i+1), 1=<i=<n, n>=1:   */
 /* ordered([x(1),x(2),...,x(n)]):- x(i)=< x(i+1)                              */
 /*----------------------------------------------------------------------------*/
+ordered([K|R]):- ordered1(R,K).
+ordered1([],_).
+ordered1([K|R],N):-(K>N), ordered1(R,K).
 
 /*----------------------------------------------------------------------------*/
 /*                   Testfälle für das Prädikat ordered                       */
@@ -312,6 +344,7 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 %ordered([5]).       -> true
 %ordered([1,2,3]).   -> true
 %ordered([1,2,1,3]). -> false
+%ordered([3,4,5,4]). -> false
 /******************************************************************************/
 /* 10. Definieren Sie das Prädikat selektieren(L1,E,L2) zur Auswahl eines     */
 /*     Elementes E aus der Liste L1, wobei die Liste L2 die restlichen        */
@@ -320,6 +353,8 @@ laenge1([_|R],s(N)):- laenge1(R,N).
 /* Pseudomathematische Definition:                                            */
 /* selektieren(L1,E,L2):- L1 = {E} u L2                                       */
 /*----------------------------------------------------------------------------*/
+selektieren([K|R],K,R).
+selektieren([K|R],S,[K|L]):-selektieren(R,S,L).
 
 /*----------------------------------------------------------------------------*/
 /*                   Testfälle für das Prädikat selektieren                   */
